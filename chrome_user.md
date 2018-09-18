@@ -83,17 +83,6 @@ s](https://en.wikipedia.org/wiki/ISO_3166-1#Officially_assigned_code_elements)
 .
 
 ### Data format
-
-The report is provided via [Google
-BigQuery](https://cloud.google.com/bigquery/) as a collection of datasets
-containing user experience metrics aggregated to origin-resolution. Each
-dataset represents a single country, `country_rs` captures user experience
-data for users in Serbia (`rs` is the [ISO 31611-1](https://en.wikipedia.org/w
-iki/ISO_3166-1#Officially_assigned_code_elements) code for Serbia).
-Additionally, there is a globally aggregated dataset (`all`) that captures the
-world-wide experience. Each row in the dataset contains a nested record of
-user experience for a particular origin, split by key dimensions.
-
 Báo cáo được cung cấp qua [Google
 BigQuery](https://cloud.google.com/bigquery/) dưới dạng tập hợp các tập dữ liệu chứa các chỉ số trải nghiệm người dùng được tổng hợp thành độ phân giải nguyên thủy. Mỗi tập dữ liệu đại diện cho một quốc gia, quốc gia nắm bắt dữ liệu trải nghiệm người dùng cho người dùng ở Serbia (`rs` là mã ISO 31611-1 cho Serbia). Ngoài ra, có một tập dữ liệu tổng hợp toàn cầu (tất cả) thu thập trải nghiệm trên toàn thế giới. Mỗi hàng trong tập dữ liệu chứa bản ghi trải nghiệm người dùng lồng nhau cho một nguồn gốc cụ thể, được chia cho các dimension chính.
 
