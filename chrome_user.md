@@ -132,15 +132,3 @@ Báo cáo trải nghiệm người dùng Chrome, hỗ trợ bởi đo lường n
 
 Do đó, hãy cẩn thận với các loại kết luận được rút ra khi nhìn vào bề mặt của nguồn gốc và khi so sánh nguồn gốc cá nhân: tránh sử dụng so sánh tuyệt đối và xem xét các yếu tố dân số khác được nêu trong các phần ở trên.  
 
-## Feedback and suggestions
-
-We would love to hear your feedback, questions, and suggestions to help us
-improve the Chrome User Experience Report. Please join the conversation on our
-[public Google Group](https://groups.google.com/a/chromium.org/forum/#!forum
-/chrome-ux-report).
-
-## License
-
-"Chrome User Experience Report" datasets by Google are licensed under a
-[Creative Commons Attribution 4.0 International
-License](https://creativecommons.org/licenses/by/4.0/).
