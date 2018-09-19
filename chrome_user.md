@@ -8,7 +8,7 @@ Chrome User Experience Report cung cấp các số liệu của trải nghiệm 
 
 ## Phương pháp
 
-The Chrome User Experience Report mạnh mẽ bởi đo lường người dùng thực với các số liệu của các trải nghiệm chủ chốt trên các trang web được public. Được tổng hợp từ những người dùng đã chọn tham gia đồng bộ hóa lịch sử duyệt web của họ, ko thiết lập mật khẩu đồng bộ hóa và đã bật báo cáo thống kê sử dụng. Dữ liệu kết quả được cung cấp qua:  
+Báo cáo trải nghiệm người dùng Chrome được hỗ trợ bởi việc đo lường số liệu trải nghiệm người dùng chính trên các trang web được public. Được tổng hợp từ những người dùng đã chọn tham gia đồng bộ hóa lịch sử duyệt web của họ, ko thiết lập mật khẩu đồng bộ hóa và đã bật báo cáo thống kê sử dụng. Dữ liệu kết quả được cung cấp qua:  
   1. [PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/), cung cấp chỉ số trải nghiệm người dùng cấp URL cho các URL phổ biến được trình thu thập dữ liệu web của Google biết đến.  
   2. [Public Google BigQuery project](https://bigquery.cloud.google.com/dataset/chrome-ux-report:all), tổng hợp các chỉ số trải nghiệm người dùng theo nguồn gốc, áp dụng cho tất cả các nguồn gốc được trình thu thập thông tin web của Google biết đến và chia nhỏ theo các mục bên dưới.
 
@@ -22,7 +22,7 @@ Chỉ số được cung cấp bởi Báo cáo trải nghiệm người dùng Ch
 Để được hướng dẫn về số liệu nào cần theo dõi và tối ưu hóa và các phương pháp hay nhất về cách diễn giải dữ liệu đo lường người dùng thực, hãy tham khảo tài liệu [hiệu suất tập trung vào người dùng](https://developers.google.com/web/updates/2017/06/user-centric-
 performance-metrics) của chúng tôi.  
 
-#### First Paint
+#### Khung màn hình đầu tiên
 
 Định nghĩ bởi [Paint Timing API](https://w3c.github.io/paint-timing/#first-
 paint) và [available in Chrome
@@ -48,7 +48,7 @@ been completely loaded and parsed, without waiting for stylesheets, images,
 and subframes to finish loading." \- [MDN](https://developer.mozilla.org/en-
 US/docs/Web/Events/DOMContentLoaded).
 
-> "The DOMContentLoaded báo cáo thời gian khi tài liệu HTML được laod hoàn toàn, mà chwua có style, ảnh và subframe.\- [MDN](https://developer.mozilla.org/en-
+> "The DOMContentLoaded báo cáo thời gian khi tài liệu HTML được laod hoàn toàn, mà chưa có style, ảnh và subframe.\- [MDN](https://developer.mozilla.org/en-
 US/docs/Web/Events/DOMContentLoaded).  
 
 #### onload
@@ -58,11 +58,11 @@ US/docs/Web/Events/DOMContentLoaded).
 > "Sự kiện tải được kích hoạt khi trang và các tài nguyên phụ thuộc của nó tải xong." \- [MDN](https://developer.mozilla.org/en-
 US/docs/Web/Events/load).
 
-### Dimensions
+### Những khía cạnh/biểu mẫu
 
 Hiệu suất của nội dung web có thể thay đổi đáng kể dựa trên loại thiết bị, thuộc tính của mạng và các yếu tố khác. Để giúp phân đoạn và hiểu trải nghiệm người dùng trên các phân đoạn chính như vậy, Báo cáo trải nghiệm người dùng Chrome cung cấp các dimension sau  
 
-#### Effective Connection Type
+#### Loại kết nối hiệu quả
 
 Định nghĩa bởi [Network Information API](https://wicg.github.io/netinfo/#dfn-
 effective-connection-types) và [available in Chrome
@@ -70,13 +70,13 @@ M62+](https://www.chromestatus.com/feature/5108786398232576):
 
 > "Cung cấp loại kết nối hiệu quả (“chậm-2g”, “2g”, “3g”, “4g” hoặc “ngoại tuyến”) được xác định theo giá trị vòng lặp và băng thông dựa trên các quan sát đo lường thực tế của người dùng. ”"
 
-#### Device Type
+#### Loại thiết bị
 
 Chia loại thiết bị ("phone", "tablet", or "desktop"), như
 [communicated via User-Agent](https://developer.chrome.com/multidevice/user-
 agent).
 
-#### Country
+#### Quốc gia
 
 Vị trí địa lý của người dùng ở cấp quốc gia, được suy ra theo địa chỉ IP của họ. Các quốc gia được xác định theo [ISO 3166-1 alpha-2 code
 s](https://en.wikipedia.org/wiki/ISO_3166-1#Officially_assigned_code_elements)
@@ -108,9 +108,9 @@ guide](https://developers.google.com/web/tools/chrome-user-experience-report
 project](https://developers.google.com/web/tools/chrome-user-experience-report
 /getting-started#example-queries).
 
-## Analysis tips &amp; best practices
+## Các mẹo khi phân tích và các phương pháp hay nhất
 
-### Consider population differences across origins  
+### Xem xét sự khác biệt về lượng truy cập trên mỗi nguồn 
 
 Các số liệu được cung cấp bởi Báo cáo trải nghiệm người dùng Chrome được cung cấp bởi dữ liệu đo lường người dùng thực. Kết quả là, dữ liệu phản ánh cách người dùng thực sự trải nghiệm nguồn gốc truy cập và không giống như thử nghiệm tổng hợp hoặc địa phương nơi thử nghiệm được thực hiện trong điều kiện cố định và mô phỏng, nắm bắt đầy đủ các yếu tố bên ngoài hình thành và đóng góp cho trải nghiệm người dùng cuối.
 
@@ -118,7 +118,7 @@ Ví dụ: sự khác biệt về dân số người dùng truy cập nguồn g�
 
 Khi thực hiện so sánh trực tiếp giữa các nguồn gốc, điều quan trọng là phải tính toán và kiểm soát sự khác biệt về dân số: phân đoạn theo thứ nguyên được cung cấp, chẳng hạn như loại thiết bị và loại kết nối và xem xét các yếu tố bên ngoài như quy mô dân số, quốc gia mà từ đó nguồn gốc được truy cập, v.v.
 
-### Consider population size differences across origins
+### Xem xét sự khác biệt kích thước truy cập giữa các nguồn trang
 
 Báo cáo trải nghiệm người dùng Chrome tổng hợp dữ liệu cho mỗi nguồn gốc, với các giá trị "mật độ" trên tất cả các biểu đồ dimension-metric tổng hợp với giá trị là "1.0". Điều này cung cấp thông tin chi tiết về phân phối trải nghiệm trên các thứ nguyên chính cho một nguồn gốc duy nhất.
 
@@ -126,7 +126,7 @@ Tuy nhiên, khi tổng hợp dữ liệu từ nhiều nguồn, ví dụ trong in
 
 Ví dụ: trang web A có thể có mười triệu khách truy cập, trong khi trang web B có mười nghìn. Trong cả hai trường hợp, mật độ biểu đồ cho mỗi tổng nguồn gốc là “1.0” và tập dữ liệu không cung cấp bất kỳ số liệu tuyệt đối nào về quy mô dân số của nguồn gốc riêng lẻ hoặc sự khác biệt về kích thước dân số tương đối trên nguồn gốc. Kết quả là, nếu bạn cộng các mật độ từ A và B, và trung bình kết quả, bạn sẽ coi chúng là bằng nhau mặc dù A có ba đơn vị lưu lượng truy cập lớn hơn.  
 
-### Consider Chrome population differences
+### Cân nhắc sự khác biệt về truy cập của Chrome
 
 Báo cáo trải nghiệm người dùng Chrome, hỗ trợ bởi đo lường người dùng thực được tổng hợp từ những người dùng Chrome đã chọn tham gia đồng bộ hóa lịch sử duyệt web của họ, ko thiết lập mật khẩu đồng bộ hóa và đã bật báo cáo thống kê sử dụng. Số người này có thể không đại diện cho cơ sở người dùng rộng hơn cho một nguồn gốc cụ thể và nhiều nguồn gốc có thể có sự khác biệt về dân số giữa nhau. Hơn nữa, dữ liệu này không tính đến người dùng có trình duyệt khác nhau và sự khác biệt trong việc chấp nhận trình duyệt ở các khu vực địa lý khác nhau.
 
