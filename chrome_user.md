@@ -8,13 +8,13 @@ Chrome User Experience Report cung cấp các số liệu của trải nghiệm 
 
 ## Phương pháp
 
-The Chrome User Experience Report mạnh mẽ bởi đo lường người dùng thực với các số liệu của các trải nghiệm chủ chốt trên các trang web được public. Được tổng hợp từ những người dùng đã chọn tham gia đồng bộ hóa lịch sử duyệt web của họ, ko thiết lập mật khẩu đồng bộ hóa và đã bật báo cáo thống kê sử dụng. Dữ liệu kết quả được cung cấp qua:  
+The Chrome User Experience Report được hỗ trợ bởi việc đo lường số liệu trải nghiệm người dùng trên các trang web được public. Được tổng hợp từ những người dùng đã chọn tham gia đồng bộ hóa lịch sử duyệt web của họ, ko thiết lập mật khẩu đồng bộ hóa và đã bật báo cáo thống kê sử dụng. Dữ liệu kết quả được cung cấp qua:  
   1. [PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/), cung cấp chỉ số trải nghiệm người dùng cấp URL cho các URL phổ biến được trình thu thập dữ liệu web của Google biết đến.  
   2. [Public Google BigQuery project](https://bigquery.cloud.google.com/dataset/chrome-ux-report:all), tổng hợp các chỉ số trải nghiệm người dùng theo nguồn gốc, áp dụng cho tất cả các nguồn gốc được trình thu thập thông tin web của Google biết đến và chia nhỏ theo các mục bên dưới.
 
 ### Số liệu
 
-Chỉ số được cung cấp bởi Báo cáo trải nghiệm người dùng Chrome công khai được lưu trữ trên Google BigQuery được cung cấp bởi các API nền tảng web chuẩn được trình duyệt hiện đại hiển thị và được tổng hợp theo phân bổ nguyên thủy. Chủ sở hữu trang web muốn phân tích chi tiết hơn (phân tích cấp độ URL) và hiểu rõ hơn về hiệu suất trang web của họ và có thể sử dụng cùng một API để thu thập dữ liệu đo lường thực tế chi tiết (RUM) cho nguồn gốc của chính họ.  
+Chỉ số được cung cấp bởi Báo cáo trải nghiệm người dùng Chrome công khai được lưu trữ trên Google BigQuery được cung cấp bởi các API nền tảng web chuẩn được trình duyệt hiện đại hiển thị và được tổng hợp theo độ phân giải gốc. Chủ sở hữu trang web muốn phân tích chi tiết hơn (phân tích cấp độ URL) và hiểu rõ hơn về hiệu suất trang web của họ và có thể sử dụng cùng một API để thu thập dữ liệu đo lường thực tế chi tiết (RUM) cho trang web của chính họ.  
 
 **Note:** Hiện tại, Chrome User Experience Report tập trung vào hiệu suất tải trang. Thời gian tới, chúng tôi hy vọng sẽ thêm nhiều chỉ số và các thành phần mở rộng hơn, cả hai đều cung cấp thông tin chi tiết hơn về tải trang và [các yếu tố quan trọng ảnh hưởng nhiều nhất đến trải nghiệm người dùng](https://developers.google.com/web/updates/2017/06/user-centric-performance-metrics).
 
@@ -43,12 +43,7 @@ M60+](https://www.chromestatus.com/feature/5688621814251520):
 Định nghĩa bởi [HTML specification](https://html.spec.whatwg.org/#event-
 domcontentloaded):
 
-> "The DOMContentLoaded reports the time when the initial HTML document has
-been completely loaded and parsed, without waiting for stylesheets, images,
-and subframes to finish loading." \- [MDN](https://developer.mozilla.org/en-
-US/docs/Web/Events/DOMContentLoaded).
-
-> "The DOMContentLoaded báo cáo thời gian khi tài liệu HTML được laod hoàn toàn, mà chwua có style, ảnh và subframe.\- [MDN](https://developer.mozilla.org/en-
+> "The DOMContentLoaded báo cáo thời gian khi tài liệu HTML được load hoàn toàn, mà chưa có style, ảnh và subframe.\- [MDN](https://developer.mozilla.org/en-
 US/docs/Web/Events/DOMContentLoaded).  
 
 #### onload
@@ -95,7 +90,7 @@ Dimension
 `first_paint.histogram.end` | 1200  
 `first_paint.histogram.density` | 0.123  
   
-Ví dụ: ở trên cho thấy một bản ghi mẫu từ Báo cáo trải nghiệm người dùng Chrome, cho biết rằng 12,3% số lần tải trang có đo lường “first paint time” trong khoảng 1000-1200 mili giây khi tải “http://example.com "Trên thiết bị" điện thoại "qua kết nối " 4G ". Để có được giá trị tích lũy của người dùng trải qua first paint time dưới 1200 mili giây, bạn có thể thêm tất cả các bản ghi có giá trị "kết thúc" của biểu đồ nhỏ hơn hoặc bằng 1200.
+Ví dụ: ở trên cho thấy một bản ghi mẫu từ Báo cáo trải nghiệm người dùng Chrome, cho biết rằng 12,3% số lần tải trang có đo lường “first paint time” trong khoảng 1000-1200 mili giây khi tải “http://example.com "Trên thiết bị" điện thoại "qua kết nối " 4G ". Để có được giá trị tích lũy của người dùng trải qua first paint time dưới 1200 mili giây, bạn có thể thêm tất cả các bản ghi có giá trị "end" của biểu đồ nhỏ hơn hoặc bằng 1200.
 
 **Note:** Báo cáo trải nghiệm người dùng Chrome không cung cấp giá trị định lượng (ví dụ: trung vị). Các giá trị như vậy có thể xấp xỉ từ dữ liệu được cung cấp, nhưng không được báo cáo tiếp xúc trực tiếp.
 
@@ -114,13 +109,13 @@ project](https://developers.google.com/web/tools/chrome-user-experience-report
 
 Các số liệu được cung cấp bởi Báo cáo trải nghiệm người dùng Chrome được cung cấp bởi dữ liệu đo lường người dùng thực. Kết quả là, dữ liệu phản ánh cách người dùng thực sự trải nghiệm nguồn gốc truy cập và không giống như thử nghiệm tổng hợp hoặc địa phương nơi thử nghiệm được thực hiện trong điều kiện cố định và mô phỏng, nắm bắt đầy đủ các yếu tố bên ngoài hình thành và đóng góp cho trải nghiệm người dùng cuối.
 
-Ví dụ: sự khác biệt về dân số người dùng truy cập nguồn gốc cụ thể có thể đóng góp những khác biệt có ý nghĩa cho trải nghiệm người dùng. Nếu trang web thường xuyên được nhiều khách truy cập hơn với các thiết bị hiện đại hơn hoặc thông qua mạng nhanh hơn, kết quả có thể xuất hiện "nhanh" ngay cả khi trang web không được tối ưu hóa tốt. Ngược lại, một trang web được tối ưu hóa tốt thu hút một lượng người dùng rộng hơn hoặc dân số có số lượng người dùng lớn hơn trên các thiết bị hoặc mạng chậm hơn, có thể xuất hiện "chậm".
+Ví dụ: sự khác biệt về dân số người dùng truy cập nguồn gốc cụ thể có thể đóng góp những khác biệt có ý nghĩa cho trải nghiệm người dùng. Nếu trang web thường xuyên được nhiều khách truy cập hơn với các thiết bị hiện đại hơn hoặc thông qua mạng nhanh hơn, kết quả có thể xuất hiện "nhanh" ngay cả khi trang web không được tối ưu hóa tốt. Ngược lại, một trang web được tối ưu hóa tốt thu hút một lượng người dùng rộng hơn hoặc 1 lượng người dùng mà đa phần sử dụng trên các thiết bị hoặc mạng chậm hơn, có thể xuất hiện "chậm".
 
 Khi thực hiện so sánh trực tiếp giữa các nguồn gốc, điều quan trọng là phải tính toán và kiểm soát sự khác biệt về dân số: phân đoạn theo thứ nguyên được cung cấp, chẳng hạn như loại thiết bị và loại kết nối và xem xét các yếu tố bên ngoài như quy mô dân số, quốc gia mà từ đó nguồn gốc được truy cập, v.v.
 
 ### Consider population size differences across origins
 
-Báo cáo trải nghiệm người dùng Chrome tổng hợp dữ liệu cho mỗi nguồn gốc, với các giá trị "mật độ" trên tất cả các biểu đồ dimension-metric tổng hợp với giá trị là "1.0". Điều này cung cấp thông tin chi tiết về phân phối trải nghiệm trên các thứ nguyên chính cho một nguồn gốc duy nhất.
+Báo cáo trải nghiệm người dùng Chrome tổng hợp dữ liệu cho mỗi nguồn gốc, với các giá trị "mật độ" trên tất cả các biểu đồ dimension-metric tổng hợp với giá trị là "1.0". Điều này cung cấp thông tin chi tiết về phân phối trải nghiệm trên các thứ nguyên chính cho một nguồn duy nhất.
 
 Tuy nhiên, khi tổng hợp dữ liệu từ nhiều nguồn, ví dụ trong industry vertical hoặc khu vực địa lý, hãy cẩn thận với các loại kết luận được rút ra: việc tăng mật độ cho cùng một chỉ số trên nhiều nguồn gốc không tính đến sự khác biệt về dân số tương đối trên nguồn gốc.
 
@@ -130,5 +125,5 @@ Ví dụ: trang web A có thể có mười triệu khách truy cập, trong khi
 
 Báo cáo trải nghiệm người dùng Chrome, hỗ trợ bởi đo lường người dùng thực được tổng hợp từ những người dùng Chrome đã chọn tham gia đồng bộ hóa lịch sử duyệt web của họ, ko thiết lập mật khẩu đồng bộ hóa và đã bật báo cáo thống kê sử dụng. Số người này có thể không đại diện cho cơ sở người dùng rộng hơn cho một nguồn gốc cụ thể và nhiều nguồn gốc có thể có sự khác biệt về dân số giữa nhau. Hơn nữa, dữ liệu này không tính đến người dùng có trình duyệt khác nhau và sự khác biệt trong việc chấp nhận trình duyệt ở các khu vực địa lý khác nhau.
 
-Do đó, hãy cẩn thận với các loại kết luận được rút ra khi nhìn vào bề mặt của nguồn gốc và khi so sánh nguồn gốc cá nhân: tránh sử dụng so sánh tuyệt đối và xem xét các yếu tố dân số khác được nêu trong các phần ở trên.  
+Do đó, hãy cẩn thận với các loại kết luận được rút ra khi nhìn vào bề mặt của các nguồn và khi so sánh các nguồn riêng biệt: tránh sử dụng so sánh tuyệt đối và xem xét các yếu tố dân số khác được nêu trong các phần ở trên.  
 
